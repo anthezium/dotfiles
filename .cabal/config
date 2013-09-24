@@ -41,8 +41,8 @@ user-install: True
 -- constraint:
 -- preference:
 -- solver: choose
--- documentation: False
--- doc-index-file: $datadir/doc/index.html
+documentation: True
+doc-index-file: $datadir/doc/$compiler/index.html
 -- max-backjumps: 200
 -- reorder-goals: False
 -- shadow-installed-packages:
@@ -59,6 +59,8 @@ remote-build-reporting: anonymous
 -- one-shot: False
 -- username:
 -- password:
+-- get cabal to build modules in parallel
+jobs:8
 
 install-dirs user
   -- prefix: /home/ted/.cabal
@@ -68,7 +70,7 @@ install-dirs user
   -- libexecdir: $prefix/libexec
   -- datadir: $prefix/share
   -- datasubdir: $pkgid
-  -- docdir: $datadir/doc/$pkgid
+  docdir: $datadir/doc/$compiler/$pkgid
   -- htmldir: $docdir/html
   -- haddockdir: $htmldir
 
@@ -83,3 +85,4 @@ install-dirs global
   -- docdir: $datadir/doc/$pkgid
   -- htmldir: $docdir/html
   -- haddockdir: $htmldir
+
