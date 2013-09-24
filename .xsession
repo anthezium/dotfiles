@@ -9,7 +9,7 @@ xrdb -merge .Xresources
 
 # Set background color
 
-xsetroot -solid midnightblue
+xsetroot -solid black
 
 # Set up screensaver
 
