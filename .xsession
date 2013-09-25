@@ -18,10 +18,9 @@ xscreensaver -no-splash &
 nm-applet --sm-disable &
 
 # Set up power management tray icon
-
 #sleep 3
 #gnome-power-manger &
-xfce4-power-manager &
+#xfce4-power-manager &
 
 #volume slider
 gnome-sound-applet &
