@@ -1,5 +1,7 @@
 *.o
 *.hi
 *.errors
+*.swp
+*.pyc
 .vim/
 .vimrc

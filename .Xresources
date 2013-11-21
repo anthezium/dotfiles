@@ -21,3 +21,6 @@ xterm*ScrollBar: true
 
 ! stop output to terminal from jumping down to bottom of scroll again
 xterm*scrollTtyOutput: false
+
+! avoid shift+PageDown blues
+XTerm*ScrollTTYKeypress: true

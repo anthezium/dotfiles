@@ -3,3 +3,4 @@
 	email = anthezium@gmail.com
 [core]
 	editor = vim
+  excludesfile = ~/.gitignore_global

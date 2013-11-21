@@ -114,8 +114,12 @@ if ! shopt -oq posix; then
 fi
 
 # set up keychain
-/usr/bin/keychain -q $HOME/.ssh/id_rsa
+# need this to get ncurses pinentry working on gpg-agent
+GPG_TTY=$(tty)
+export GPG_TTY
+/usr/bin/keychain -q $HOME/.ssh/id_rsa F400EE50 
 . $HOME/.keychain/$(hostname)-sh
+. $HOME/.keychain/$(hostname)-sh-gpg
 
 # set PATH so it includes user's private bins if they exist
 

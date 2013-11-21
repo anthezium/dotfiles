@@ -1,3 +1,4 @@
+hoogle -any
 X11-xft -any
 X11 -any
 derive -any
