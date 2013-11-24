@@ -1,4 +1,4 @@
 #!/bin/bash
 
-killall xmobar
-/home/ted/.cabal/bin/xmobar $@
+pgrep xmobar &> /dev/null && killall xmobar
+xmobar $@
