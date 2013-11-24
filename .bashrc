@@ -114,5 +114,5 @@ if ! shopt -oq posix; then
 fi
 
 # set up keychain
-/usr/bin/keychain -q $HOME/.ssh/id_rsa
-. $HOME/.keychain/$(hostname)-sh
+#/usr/bin/keychain -q $HOME/.ssh/id_rsa
+#. $HOME/.keychain/$(hostname)-sh

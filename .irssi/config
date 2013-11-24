@@ -263,6 +263,6 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "Ted"; user_name = "ted"; nick = "anthezium"; };
+  core = { real_name = "Ted"; user_name = "ted"; nick = "theod"; };
   "fe-text" = { actlist_sort = "refnum"; };
 };
