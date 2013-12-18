@@ -6,3 +6,5 @@
   excludesfile = ~/.gitignore_global
 #[push]
 #  default = simple
+[status]
+  showuntrackedfiles = no
