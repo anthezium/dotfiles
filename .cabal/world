@@ -1,3 +1,4 @@
+xmobar -any
 xmonad -any
 xmonad-contrib -any
 cabal-install -any
