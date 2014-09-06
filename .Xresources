@@ -1,8 +1,9 @@
 ! font and size
 ! xterm*faceName: DejaVU Sans Mono Book
 ! xterm*faceSize: 12
-xterm*faceName: Terminus
-xterm*faceSize: 14
+!xterm*faceName: Terminus
+xterm*faceName: Consolas
+xterm*faceSize: 12
 
 ! make all xterms login shells
 xterm*loginshell: true
