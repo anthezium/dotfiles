@@ -7,6 +7,9 @@ trayer --edge top --align right --SetDockType true --SetPartialStrut true \
 # Load resources
 xrdb -merge .Xresources
 
+# set up custom X key bindings for volume control, etc.
+xbindkeys &
+
 # Set background color
 
 xsetroot -solid black
