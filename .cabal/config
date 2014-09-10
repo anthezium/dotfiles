@@ -23,12 +23,12 @@ world-file: /home/theod/.cabal/world
 -- program-prefix: 
 -- program-suffix: 
 -- library-vanilla: True
--- library-profiling: False
+library-profiling: True
 -- shared:
 -- executable-dynamic: False
 -- executable-profiling: False
 -- optimization: True
--- library-for-ghci: False
+library-for-ghci: True
 -- split-objs: False
 -- executable-stripping: True
 -- library-stripping: True
@@ -47,7 +47,7 @@ extra-prog-path: /home/theod/.cabal/bin
 -- preference:
 -- solver: choose
 -- allow-newer: False
--- documentation: False
+documentation: True
 -- doc-index-file: $datadir/doc/index.html
 -- max-backjumps: 2000
 -- reorder-goals: False
@@ -70,7 +70,7 @@ jobs: $ncpus
 
 haddock
   -- keep-temp-files: False
-  -- hoogle: False
+  hoogle: True
   -- html: False
   -- html-location:
   -- executables: False
@@ -79,7 +79,7 @@ haddock
   -- all:
   -- internal: False
   -- css:
-  -- hyperlink-source: False
+  hyperlink-source: True
   -- hscolour-css:
   -- contents-location:
 
