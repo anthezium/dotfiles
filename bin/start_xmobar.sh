@@ -1,4 +1,4 @@
 #!/bin/bash
 
 pgrep xmobar &> /dev/null && killall xmobar
-xmobar $@
+$HOME/.cabal/bin/xmobar $@

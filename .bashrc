@@ -57,9 +57,9 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+  PS1="\$(ret=\$?; if [[ \${ret} == 0 ]]; then echo \"\[\033[01;32m\]\${ret}\"; else echo \"\[\033[01;31m\]\${ret}\"; fi) ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='$? ${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -113,17 +113,21 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# set up keychain
+# set up keychain (instead of envoy)
 # need this to get ncurses pinentry working on gpg-agent
-GPG_TTY=$(tty)
-export GPG_TTY
-/usr/bin/keychain -q $HOME/.ssh/id_rsa F400EE50 
-. $HOME/.keychain/$(hostname)-sh
-. $HOME/.keychain/$(hostname)-sh-gpg
+# GPG_TTY=$(tty)
+# export GPG_TTY
+# /usr/bin/keychain -q $HOME/.ssh/id_rsa F400EE50 
+# . $HOME/.keychain/$(hostname)-sh
+# . $HOME/.keychain/$(hostname)-sh-gpg
+
+# set up envoy (instead of keychain)
+envoy -t ssh-agent
+source <(envoy -p)
 
 # set PATH so it includes user's private bins if they exist
 
-for binpath in "$HOME/bin" "$HOME/.cabal/bin"
+for binpath in "$HOME/bin" "$HOME/.cabal/bin" "$HOME/.local/bin"
 do
   if [ -d "${binpath}" ] ; then
       PATH="${binpath}:$PATH"

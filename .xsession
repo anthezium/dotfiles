@@ -16,7 +16,7 @@ xsetroot -solid black
 xscreensaver -no-splash &
 
 # tray applet for networking
-nm-applet --sm-disable &
+#nm-applet --sm-disable &
 #wicd-client -t &
 
 # Set up power management tray icon
@@ -25,6 +25,7 @@ nm-applet --sm-disable &
 xfce4-power-manager &
 
 #volume slider
+# gnome-sound-applet &
 volumeicon &
 
 # start xmonad
