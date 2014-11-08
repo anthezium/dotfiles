@@ -27,3 +27,6 @@ xterm*scrollTtyOutput: false
 
 ! avoid shift+PageDown blues
 XTerm*ScrollTTYKeypress: true
+
+! make xscreensaver lock by default
+xscreensaver.lock: True
