@@ -37,4 +37,10 @@ ${HOME}/git/lightsOn/lightsOn.sh &
 
 # start xmonad
 
+# for xmonad
 exec ${HOME}/.cabal/bin/xmonad
+
+# for xfce4
+#xfce4-panel &
+#
+#exec startxfce4
