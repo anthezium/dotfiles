@@ -2,6 +2,7 @@ import XMonad
 import XMonad.Actions.CycleWS
 import XMonad.Config.Gnome
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.IM
 import XMonad.Layout.PerWorkspace
@@ -16,8 +17,9 @@ myModMask = mod4Mask
 
 main = do
   xmobarProc <- spawnPipe "~/bin/start_xmobar.sh ~/.xmobarrc"
-  xmonad $ defaultConfig --gnomeConfig to manage windows for Gnome
+  xmonad $ ewmh defaultConfig --gnomeConfig to manage windows for Gnome
     { manageHook = manageDocks <+> manageHook defaultConfig
+    , handleEventHook = fullscreenEventHook
     , layoutHook = avoidStruts  $  (onWorkspace "gimp" gimp) $ layoutHook defaultConfig
     , logHook = dynamicLogWithPP xmobarPP
         { ppOutput = hPutStrLn xmobarProc
