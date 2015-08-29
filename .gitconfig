@@ -6,6 +6,7 @@
   excludesfile = ~/.gitignore_global
 [push]
   default = upstream
+  followTags = true
 [status]
   showuntrackedfiles = no
 [color]
