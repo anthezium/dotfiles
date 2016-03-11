@@ -2,3 +2,5 @@
 (xbindkey '("XF86AudioLowerVolume") "amixer -c 0 sset 'Master',0 2dB-")
 (xbindkey '("XF86AudioMute") "amixer set Master toggle")
 (xbindkey '("XF86AudioMicMute") "amixer set Capture toggle") 
+(xbindkey '("XF86MonBrightnessUp") "echo '$(cat /sys/class/backlight/intel_backlight/brightness) * 1.1 / 1' | bc > /sys/class/backlight/intel_backlight/brightness")
+(xbindkey '("XF86MonBrightnessDown") "echo '$(cat /sys/class/backlight/intel_backlight/) * 0.9 / 1' | bc > /sys/class/backlight/intel_backlight/brightness")

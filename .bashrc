@@ -127,9 +127,10 @@ source <(envoy -p)
 
 # set PATH so it includes user's private bins if they exist
 
-for binpath in "$HOME/bin" "$HOME/.cabal/bin" "$HOME/.local/bin"
+for binpath in "$HOME/bin" "$HOME/.cabal/bin" "$HOME/.local/bin" "$HOME/.cask/bin"
 do
   if [ -d "${binpath}" ] ; then
       PATH="${binpath}:$PATH"
   fi
 done
+alias psuprint='ssh theod@cs.pdx.edu lpr -P fab12003bw1 -o sides=two-sided-long-edge <'
