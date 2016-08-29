@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# TODO use this in a loop that runs it every time a ping to
+# the default gateway times out.
+
 set -x
 
 IF="wlp3s0"
