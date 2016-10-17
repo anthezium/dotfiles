@@ -133,4 +133,4 @@ do
       PATH="${binpath}:$PATH"
   fi
 done
-alias psuprint='ssh theod@cs.pdx.edu lpr -P fab12003bw1 -o sides=two-sided-long-edge <'
+alias psuprint='ssh theod@linux.cs.pdx.edu lpr -P fab12003bw1 -o sides=two-sided-long-edge <'
