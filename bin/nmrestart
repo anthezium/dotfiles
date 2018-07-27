@@ -1,0 +1,4 @@
+#!/bin/bash
+
+pkill nm-applet
+nm-applet --sm-disable &

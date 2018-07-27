@@ -1,0 +1,19 @@
+#!/bin/bash
+sudo pacman -Sy archlinux-keyring
+sudo pacman-key --init
+sudo pacman-key --populate archlinux
+sudo pacman-key --refresh-keys
+sudo pacman -Syu
+
+sudo bash <<EOF
+sudo pacman -Sy archlinux-keyring
+rm -R /etc/pacman.d/gnupg
+rm -R /root/.gnupg
+dirmngr </dev/null
+gpg --refresh-keys
+pacman-key --init
+pacman-key --populate archlinux
+pacman-key --refresh-keys
+pacman -Syu
+gdk-pixbuf-query-loaders --update-cache
+EOF
