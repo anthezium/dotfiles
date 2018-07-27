@@ -35,4 +35,5 @@ main = do
     , ((myModMask, xK_Right), nextWS)
     , ((myModMask .|. shiftMask , xK_Left), shiftToPrev)
     , ((myModMask .|. shiftMask , xK_Right), shiftToNext)
+    , ((myModMask, xK_Home), spawn "vlc --meta-title projector")
     ]
