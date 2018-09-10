@@ -1,0 +1,4 @@
+#!/bin/bash
+
+aur sync $*
+pacman -S $1
