@@ -1,8 +1,16 @@
 #!/bin/bash
 
-## Set up icon tray first so applets have somewhere to go
-trayer --edge top --align right --SetDockType true --SetPartialStrut true \
- --expand true --widthtype percent --width 10 --transparent true --alpha 0 --tint 0x00ff00 --height 20 &
+#MGR="xfce"
+MGR="xmonad"
+
+if [ "$MGR" = "xmonad" ]; then
+  ## Set up icon tray first so applets have somewhere to go
+  trayer --edge top --align right --SetDockType true --SetPartialStrut true \
+   --expand true --widthtype percent --width 10 --transparent true --alpha 0 --tint 0x00ff00 --height 20 &
+elif [ "$MGR" = "xfce" ]; then
+  # for xfce4
+  xfce4-panel &
+fi
 
 # tray applet for networking
 #nm-applet --sm-disable &
@@ -42,12 +50,11 @@ ${HOME}/git/lightsOn/lightsOn.sh &
 # redshift to adjust color temperature based on time of day (latitude:longitude for Portland)
 redshift -l 45.5231:122.6765 &
 
-# start xmonad
-
-# for xmonad
-exec ${HOME}/.cabal/bin/xmonad
-
-# for xfce4
-#xfce4-panel &
-#
-#exec startxfce4
+# start window manager
+if [ "$MGR" = "xmonad" ]; then
+  # for xmonad
+  exec ${HOME}/.cabal/bin/xmonad
+elif [ "$MGR" = "xfce" ]; then
+  # for xfce4
+  exec startxfce4
+fi
