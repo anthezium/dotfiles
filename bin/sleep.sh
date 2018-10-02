@@ -12,6 +12,6 @@ if [ "$1" = "post" ]; then
   /sbin/modprobe -v iwldvm
   /sbin/modprobe -v iwlwifi
   systemctl restart NetworkManager.service
-  pkill nm-applet
-  sudo -u theod env DISPLAY=:0 XAUTHORITY=/home/theod/.Xauthority nm-applet --sm-disable &
+  sleep 1
+  pkill -HUP nm-wrapplet
 fi

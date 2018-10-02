@@ -13,9 +13,10 @@ elif [ "$MGR" = "xfce" ]; then
 fi
 
 # tray applet for networking
-#nm-applet --sm-disable &
-wicd-client --tray &
-
+#nm-applet --sm-disable --no-agent &
+pkill nm-wrapplet || true
+/home/theod/bin/nm-wrapplet &
+#wicd-client --tray &
 # Load resources
 xrdb -merge .Xresources
 
