@@ -1,19 +1,12 @@
 #!/bin/bash
 
-set -x
-
-function run {
+function killApplet {
   pkill nm-applet
+}
+
+trap killApplet SIGHUP
+
+while true; do
   nm-applet --no-agent --sm-disable &
   wait
-  run
-}
-trap run SIGHUP
-
-#function foo {
-#  echo "foo ran"
-#  wait
-#}
-#trap foo SIGINT
-
-run
+done
