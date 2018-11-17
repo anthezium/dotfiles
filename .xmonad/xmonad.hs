@@ -11,16 +11,16 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
 
-gimp = withIM (0.11) (Role "gimp-toolbox") $ reflectHoriz $ withIM (0.15) (Role "gimp-dock") Full
+--gimp = withIM (0.11) (Role "gimp-toolbox") $ reflectHoriz $ withIM (0.15) (Role "gimp-dock") Full
 
 myModMask = mod4Mask
 
 main = do
   xmobarProc <- spawnPipe "~/bin/start_xmobar.sh ~/.xmobarrc"
-  xmonad $ ewmh defaultConfig --gnomeConfig to manage windows for Gnome
+  xmonad $ docks defaultConfig --gnomeConfig to manage windows for Gnome
     { manageHook = manageDocks <+> manageHook defaultConfig
     , handleEventHook = fullscreenEventHook
-    , layoutHook = avoidStruts  $  (onWorkspace "gimp" gimp) $ layoutHook defaultConfig
+    , layoutHook = avoidStruts $ layoutHook defaultConfig
     , logHook = dynamicLogWithPP xmobarPP
         { ppOutput = hPutStrLn xmobarProc
         , ppTitle = xmobarColor "green" "" . shorten 50

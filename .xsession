@@ -54,7 +54,9 @@ redshift -l 45.5231:122.6765 &
 # start window manager
 if [ "$MGR" = "xmonad" ]; then
   # for xmonad
-  exec ${HOME}/.cabal/bin/xmonad
+  #exec ${HOME}/.cabal/bin/xmonad
+  #exec xmonad
+  exec ${HOME}/.xmonad/xmonad-x86_64-linux
 elif [ "$MGR" = "xfce" ]; then
   # for xfce4
   exec startxfce4
