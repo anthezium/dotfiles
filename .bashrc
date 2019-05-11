@@ -134,3 +134,5 @@ do
   fi
 done
 alias psuprint='ssh theod@linux.cs.pdx.edu lpr -P fab12003bw1 -o sides=two-sided-long-edge <'
+
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/builds/lib
