@@ -17,3 +17,10 @@ pacman-key --refresh-keys
 pacman -Syu
 gdk-pixbuf-query-loaders --update-cache
 EOF
+
+# update initramfses
+sudo mkinitcpio -p linux
+
+# update grub configuration and reinstall grub, assumes boot partition is root
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo grub-install --target=i386-pc $(mount | grep 'on / ' | sed 's@^\(/dev/sd[a-z]\).*@\1@')
