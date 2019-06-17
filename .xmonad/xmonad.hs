@@ -27,6 +27,7 @@ main = do
         }
     , modMask = myModMask
     , terminal = "xterm"
+    , borderWidth = 0
     } `additionalKeys` 
     [ ((myModMask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
     , ((0, xK_Print), spawn "scrot '%Y-%m-%d-%s_$wx$h_full.png' -e 'mv $f ~/screenshots/'") --screenshot
