@@ -1,0 +1,3 @@
+#!/bin/bash
+
+vlc -I dummy v4l2:///dev/video0 --video-filter scene --no-audio --scene-path /home/theod/screenshots --scene-prefix webcam --scene-format png vlc://quit --run-time=1

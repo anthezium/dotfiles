@@ -1,12 +1,15 @@
 ! font and size
-xterm*faceName: DejaVU Sans Mono Book
-xterm*faceSize: 12
+! xterm*faceName: DejaVU Sans Mono Book
+! xterm*faceSize: 12
+!xterm*faceName: Terminus
+xterm*faceName: Consolas
+xterm*faceSize: 16
 
 ! make all xterms login shells
 xterm*loginshell: true
 
 ! scrollback
-xterm*savelines: 16384
+xterm*savelines: 640000
 
 ! double-click to select whole URLs
 xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126
@@ -24,3 +27,10 @@ xterm*scrollTtyOutput: false
 
 ! avoid shift+PageDown blues
 XTerm*ScrollTTYKeypress: true
+
+! make xscreensaver lock by default
+xscreensaver.lock: True
+
+! open scrollback buffer in less in a new xterm when I press Ctrl + /
+XTerm.vt100.printerCommand: xterm -e sh -c 'less -r <&3' 3<&0
+XTerm.vt100.translations: #override Ctrl ~Meta ~Shift <Key>slash: print-everything()

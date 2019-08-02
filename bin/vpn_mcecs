@@ -1,0 +1,6 @@
+#!/bin/bash
+
+pushd ~theod/cecs_linux_openvpn
+#sudo openvpn --config cecs_full_tunnel.ovpn
+sudo openvpn --config cecs.ovpn
+popd

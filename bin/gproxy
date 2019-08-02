@@ -1,0 +1,7 @@
+#!/bin/bash
+
+
+if ! lsof -i -P -n | grep -q ':7777\s.*(LISTEN)'; then
+  ssh -D7777 munkustrap.duckdns.org &
+fi
+google-chrome-beta --proxy-server="socks5://localhost:7777"

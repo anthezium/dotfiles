@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -x
+
+SCS="$(ssh babbage.cs.pdx.edu 'screen -list' | grep -o [[:alnum:].-]*babbage | tr '\n' ' ')"
+
+for sc in $SCS; do
+  xterm -e ssh -t babbage.cs.pdx.edu "screen -dr $sc" &
+done
+

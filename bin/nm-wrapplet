@@ -1,0 +1,12 @@
+#!/bin/bash
+
+function killApplet {
+  pkill nm-applet
+}
+
+trap killApplet SIGHUP
+
+while true; do
+  nm-applet --no-agent --sm-disable &
+  wait
+done
