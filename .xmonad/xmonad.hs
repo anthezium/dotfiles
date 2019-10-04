@@ -4,6 +4,7 @@ import XMonad.Config.Gnome
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
+import XMonad.Layout.BinarySpacePartition
 import XMonad.Layout.IM
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Reflect
@@ -21,6 +22,8 @@ main = do
     { manageHook = manageDocks <+> manageHook defaultConfig
     , handleEventHook = fullscreenEventHook
     , layoutHook = avoidStruts $ layoutHook defaultConfig
+    -- for BSP
+    --, layoutHook = desktopLayoutModifiers $ emptyBSP
     , logHook = dynamicLogWithPP xmobarPP
         { ppOutput = hPutStrLn xmobarProc
         , ppTitle = xmobarColor "green" "" . shorten 50
@@ -37,4 +40,6 @@ main = do
     , ((myModMask .|. shiftMask , xK_Left), shiftToPrev)
     , ((myModMask .|. shiftMask , xK_Right), shiftToNext)
     , ((myModMask, xK_Home), spawn "vlc --meta-title projector")
+    , ((myModMask, xK_r), sendMessage Rotate)
+    , ((myModMask, xK_s), sendMessage Swap)
     ]

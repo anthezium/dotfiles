@@ -46,7 +46,7 @@ cbatticon &
 volumeicon &
 
 # don't screensaver/go to sleep while i'm watching stuff
-${HOME}/git/lightsOn/lightsOn.sh &
+#${HOME}/git/lightsOn/lightsOn.sh &
 
 # redshift to adjust color temperature based on time of day (latitude:longitude for Portland)
 redshift -l 45.5231:122.6765 &

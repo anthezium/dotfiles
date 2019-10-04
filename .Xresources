@@ -4,12 +4,13 @@
 !xterm*faceName: Terminus
 xterm*faceName: Consolas
 xterm*faceSize: 16
+URxvt*font: xft:Consolas:size=22
 
-! make all xterms login shells
-xterm*loginshell: true
+! make all xterms and urxvts login shells
+?*loginshell: true
 
 ! scrollback
-xterm*savelines: 640000
+?*saveLines: 640000
 
 ! double-click to select whole URLs
 xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126
@@ -17,6 +18,8 @@ xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126
 ! colors
 xterm*foreground: rgb:00/ff/00
 xterm*background: rgb:00/00/00
+URxvt*foreground: rgb:00/00/00
+URxvt*background: rgb:ff/ff/ff
 
 ! right hand side scrollbar
 xterm*rightScrollBar: true
