@@ -4,7 +4,7 @@
 !xterm*faceName: Terminus
 xterm*faceName: Consolas
 xterm*faceSize: 16
-URxvt*font: xft:Consolas:size=22
+URxvt*font: xft:Consolas:size=21:Bold
 
 ! make all xterms and urxvts login shells
 ?*loginshell: true
@@ -22,6 +22,10 @@ URxvt*foreground: rgb:00/00/00
 URxvt*background: rgb:ff/ff/ff
 
 ! right hand side scrollbar
+URxvt*scrollstyle: plain
+URxvt*scrollBar: true
+URxvt*scrollBar_right: true
+URxvt*thickness: 12
 xterm*rightScrollBar: true
 xterm*ScrollBar: true
 

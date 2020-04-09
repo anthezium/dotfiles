@@ -65,8 +65,12 @@ unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
+xterm*)
     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+# simple prompt for uxrvt (saves horizontal space for demos to students)
+rxvt*)
+    PS1="$ "
     ;;
 *)
     ;;
@@ -136,3 +140,7 @@ done
 alias psuprint='ssh theod@linux.cs.pdx.edu lpr -P fab12003bw1 -o sides=two-sided-long-edge <'
 
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/builds/lib
+
+# set up GOPATH
+export GOPATH=$HOME/gopath
+export PATH=$GOPATH:$GOPATH/bin:$PATH
