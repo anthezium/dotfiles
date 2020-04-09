@@ -16,13 +16,13 @@ fi
 
 # tray applet for networking
 #nm-applet --sm-disable --no-agent &
-if [ "$MGR" -ne "kde" ]; then
+if [ "$MGR" != "kde" ]; then
   pkill nm-wrapplet || true
   /home/theod/bin/nm-wrapplet &
 fi
 
 # tray applet for bluetooth
-if [ "$MGR" -ne "kde" ]; then
+if [ "$MGR" != "kde" ]; then
   blueman-applet &
 fi
 #wicd-client --tray &
@@ -52,7 +52,7 @@ cbatticon &
 
 #volume slider
 # gnome-sound-applet &
-if [ "$MGR" -ne "kde" ]; then
+if [ "$MGR" != "kde" ]; then
   volumeicon &
 fi
 
