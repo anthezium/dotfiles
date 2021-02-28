@@ -34,6 +34,7 @@ main = do
     } `additionalKeys` 
     [ ((myModMask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
     , ((0, xK_Print), spawn "scrot '%Y-%m-%d-%s_$wx$h_full.png' -e 'mv $f ~/screenshots/'") --screenshot
+    , ((shiftMask, xK_Print), spawn "scrot -s '%Y-%m-%d-%s_$wx$h_full.png' -e 'mv $f ~/screenshots/'") --screenshot selected portion
     , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s '%Y-%m-%d-%s_$wx$h_window.png' -e 'mv $f ~/screenshots/'") --windowshot
     , ((myModMask, xK_Left), prevWS)
     , ((myModMask, xK_Right), nextWS)
