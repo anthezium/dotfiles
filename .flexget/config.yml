@@ -1,0 +1,45 @@
+templates:
+  tv:
+    exists_series: /mnt/KingGhidora/media/shared/
+    transmission:
+      host: localhost
+      port: 9091
+      username: ted
+      password: '050530'  
+    content_size:
+      min: 12
+      max: 4096
+    series:
+      settings:
+        main:
+          quality: 1080p+
+      main:
+      - The 100
+      - Broad City
+      - High Maintenance
+      - Fear the Walking Dead
+      - Watchmen
+      - Lost In Space (2018)
+      - The Mandalorian
+      - His Dark Materials
+      - The Expanse
+      - Work in Progress
+      - Avenue 5
+      - "Star Trek: Picard"
+      - "Star Trek: Discovery"
+      - "Schitt's Creek"
+      - Lovecraft Country
+      - The Boys
+      - "Raised by Wolves (2020)"
+      - "The Watch (2021)"
+      - WandaVision
+
+tasks:
+  btn:
+    rss: https://broadcasthe.net/feeds.php?feed=torrents_all&user=1502049&auth=bd6b2ec8bb8552824f20b76ce2f276b6&passkey=s7sdljbh3x7ims2gyrogrlro6hvl132m&authkey=3500b6a0265f955ae9da6fce81eb929a
+    template: tv
+
+schedules:
+  - tasks: '*'
+    interval: 
+      minutes: 5
