@@ -4,6 +4,7 @@ import XMonad.Config.Gnome
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
+import XMonad.Layout.BinarySpacePartition
 import XMonad.Layout.IM
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Reflect
@@ -21,6 +22,8 @@ main = do
     { manageHook = manageDocks <+> manageHook defaultConfig
     , handleEventHook = fullscreenEventHook
     , layoutHook = avoidStruts $ layoutHook defaultConfig
+    -- for BSP
+    --, layoutHook = desktopLayoutModifiers $ emptyBSP
     , logHook = dynamicLogWithPP xmobarPP
         { ppOutput = hPutStrLn xmobarProc
         , ppTitle = xmobarColor "green" "" . shorten 50
@@ -31,10 +34,13 @@ main = do
     } `additionalKeys` 
     [ ((myModMask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
     , ((0, xK_Print), spawn "scrot '%Y-%m-%d-%s_$wx$h_full.png' -e 'mv $f ~/screenshots/'") --screenshot
+    , ((shiftMask, xK_Print), spawn "scrot -s '%Y-%m-%d-%s_$wx$h_full.png' -e 'mv $f ~/screenshots/'") --screenshot selected portion
     , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s '%Y-%m-%d-%s_$wx$h_window.png' -e 'mv $f ~/screenshots/'") --windowshot
     , ((myModMask, xK_Left), prevWS)
     , ((myModMask, xK_Right), nextWS)
     , ((myModMask .|. shiftMask , xK_Left), shiftToPrev)
     , ((myModMask .|. shiftMask , xK_Right), shiftToNext)
     , ((myModMask, xK_Home), spawn "vlc --meta-title projector")
+    , ((myModMask, xK_r), sendMessage Rotate)
+    , ((myModMask, xK_s), sendMessage Swap)
     ]

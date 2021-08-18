@@ -11,3 +11,5 @@
   showuntrackedfiles = no
 [color]
 	ui = auto
+[pull]
+	rebase = false

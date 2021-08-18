@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#MGR="kde"
 #MGR="xfce"
 MGR="xmonad"
 
@@ -9,13 +10,21 @@ if [ "$MGR" = "xmonad" ]; then
    --expand true --widthtype percent --width 10 --transparent true --alpha 0 --tint 0x00ff00 --height 20 &
 elif [ "$MGR" = "xfce" ]; then
   # for xfce4
-  xfce4-panel &
+  #xfce4-panel &
+  true
 fi
 
 # tray applet for networking
 #nm-applet --sm-disable --no-agent &
-pkill nm-wrapplet || true
-/home/theod/bin/nm-wrapplet &
+if [ "$MGR" != "kde" ]; then
+  pkill nm-wrapplet || true
+  /home/theod/bin/nm-wrapplet &
+fi
+
+# tray applet for bluetooth
+if [ "$MGR" != "kde" ]; then
+  blueman-applet &
+fi
 #wicd-client --tray &
 # Load resources
 xrdb -merge .Xresources
@@ -33,7 +42,7 @@ xscreensaver -no-splash &
 xss-lock -- xscreensaver-command -lock &
 
 # Caffeine to toggle off (or timer off) screen saver
-caffeine &
+#caffeine &
 
 # Set up power management tray icon
 #sleep 3
@@ -43,10 +52,12 @@ cbatticon &
 
 #volume slider
 # gnome-sound-applet &
-volumeicon &
+if [ "$MGR" != "kde" ]; then
+  volumeicon &
+fi
 
 # don't screensaver/go to sleep while i'm watching stuff
-${HOME}/git/lightsOn/lightsOn.sh &
+#${HOME}/git/lightsOn/lightsOn.sh &
 
 # redshift to adjust color temperature based on time of day (latitude:longitude for Portland)
 redshift -l 45.5231:122.6765 &
@@ -60,4 +71,6 @@ if [ "$MGR" = "xmonad" ]; then
 elif [ "$MGR" = "xfce" ]; then
   # for xfce4
   exec startxfce4
+elif [ "$MGR" = "kde" ]; then
+  exec startplasma-x11
 fi
