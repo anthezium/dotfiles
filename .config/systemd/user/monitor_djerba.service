@@ -1,0 +1,10 @@
+[Unit]
+Description=Monitor djerba, my backup wifi access point
+
+[Service]
+Type=simple
+StandardOutput=journal
+ExecStart=/home/theod/bin/monitor_device.sh djerba
+
+[Install]
+WantedBy=default.target

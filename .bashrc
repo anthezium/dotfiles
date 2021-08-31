@@ -126,8 +126,10 @@ fi
 # . $HOME/.keychain/$(hostname)-sh-gpg
 
 # set up envoy (instead of keychain)
-envoy -t ssh-agent
-source <(envoy -p)
+if which envoy; then
+  envoy -t ssh-agent
+  source <(envoy -p)
+fi
 
 # set PATH so it includes user's private bins if they exist
 
