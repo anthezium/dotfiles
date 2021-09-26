@@ -121,15 +121,16 @@ fi
 # need this to get ncurses pinentry working on gpg-agent
 # GPG_TTY=$(tty)
 # export GPG_TTY
-# /usr/bin/keychain -q $HOME/.ssh/id_rsa F400EE50 
+#/usr/bin/keychain -q $HOME/.ssh/id_ed25519 F400EE50 
+eval $(/usr/bin/keychain --eval -q $HOME/.ssh/id_ed25519)
 # . $HOME/.keychain/$(hostname)-sh
 # . $HOME/.keychain/$(hostname)-sh-gpg
 
-# set up envoy (instead of keychain)
-if which envoy; then
-  envoy -t ssh-agent
-  source <(envoy -p)
-fi
+## set up envoy (instead of keychain)
+#if which envoy; then
+#  envoy -t ssh-agent
+#  source <(envoy -p)
+#fi
 
 # set PATH so it includes user's private bins if they exist
 
