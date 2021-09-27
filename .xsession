@@ -14,6 +14,13 @@ elif [ "$MGR" = "xfce" ]; then
   true
 fi
 
+eval $(gnome-keyring-daemon --start)
+
+systemctl --user import-environment DISPLAY XAUTHORITY
+if command -v dbus-update-activation-environment >/dev/null 2>&1; then
+    dbus-update-activation-environment DISPLAY XAUTHORITY
+fi
+
 # tray applet for networking
 #nm-applet --sm-disable --no-agent &
 if [ "$MGR" != "kde" ]; then
@@ -62,12 +69,16 @@ fi
 # redshift to adjust color temperature based on time of day (latitude:longitude for Portland)
 redshift -l 45.5231:122.6765 &
 
+# use lxde's polkit daemon
+lxpolkit &
+
 # start window manager
 if [ "$MGR" = "xmonad" ]; then
   # for xmonad
   #exec ${HOME}/.cabal/bin/xmonad
   #exec xmonad 
   exec ${HOME}/.xmonad/xmonad-x86_64-linux
+  #lxsession -e xmonad-x86_64-linux -s xmonad
 elif [ "$MGR" = "xfce" ]; then
   # for xfce4
   exec startxfce4
