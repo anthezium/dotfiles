@@ -15,6 +15,7 @@ elif [ "$MGR" = "xfce" ]; then
 fi
 
 eval $(gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
 
 systemctl --user import-environment DISPLAY XAUTHORITY
 if command -v dbus-update-activation-environment >/dev/null 2>&1; then
@@ -35,10 +36,12 @@ fi
 #wicd-client --tray &
 # Load resources
 xrdb -merge .Xresources
+#echo "place 0" 2>&1
 
 # set up custom X key bindings for volume control, etc.
 xbindkeys &
 
+#echo "place 1" 2>&1
 # Set background color
 
 xsetroot -solid black
@@ -46,8 +49,10 @@ xsetroot -solid black
 # Set up screensaver
 
 xscreensaver -no-splash &
+#echo "place 2" 2>&1
 xss-lock -- xscreensaver-command -lock &
 
+#echo "place 2a" 2>&1
 # Caffeine to toggle off (or timer off) screen saver
 #caffeine &
 
@@ -57,20 +62,27 @@ xss-lock -- xscreensaver-command -lock &
 #xfce4-power-manager &
 cbatticon &
 
+#echo "place 3" 2>&1
+
 #volume slider
 # gnome-sound-applet &
 if [ "$MGR" != "kde" ]; then
-  volumeicon &
+  #volumeicon &
+  pasystray &
 fi
+
+#echo "place 4" 2>&1
 
 # don't screensaver/go to sleep while i'm watching stuff
 #${HOME}/git/lightsOn/lightsOn.sh &
 
 # redshift to adjust color temperature based on time of day (latitude:longitude for Portland)
 redshift -l 45.5231:122.6765 &
+#echo "place 5" 2>&1
 
 # use lxde's polkit daemon
 lxpolkit &
+#echo "place 6" 2>&1
 
 # start window manager
 if [ "$MGR" = "xmonad" ]; then

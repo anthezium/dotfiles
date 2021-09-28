@@ -122,7 +122,8 @@ fi
 # GPG_TTY=$(tty)
 # export GPG_TTY
 #/usr/bin/keychain -q $HOME/.ssh/id_ed25519 F400EE50 
-eval $(/usr/bin/keychain --eval -q $HOME/.ssh/id_ed25519)
+# using gnome-keyring-daemon instead
+#eval $(/usr/bin/keychain --eval -q $HOME/.ssh/id_ed25519)
 # . $HOME/.keychain/$(hostname)-sh
 # . $HOME/.keychain/$(hostname)-sh-gpg
 
@@ -134,7 +135,7 @@ eval $(/usr/bin/keychain --eval -q $HOME/.ssh/id_ed25519)
 
 # set PATH so it includes user's private bins if they exist
 
-for binpath in "$HOME/bin" "$HOME/.cabal/bin" "$HOME/.local/bin" "$HOME/.cask/bin"
+for binpath in "$HOME/bin" "$HOME/.cabal/bin" "$HOME/.local/bin" "$HOME/.cask/bin" "$HOME/.xmonad"
 do
   if [ -d "${binpath}" ] ; then
       PATH="${binpath}:$PATH"
