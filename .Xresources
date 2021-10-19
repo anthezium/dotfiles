@@ -41,3 +41,6 @@ xscreensaver.lock: True
 ! open scrollback buffer in less in a new xterm when I press Ctrl + /
 XTerm.vt100.printerCommand: xterm -e sh -c 'less -r <&3' 3<&0
 XTerm.vt100.translations: #override Ctrl ~Meta ~Shift <Key>slash: print-everything()
+
+! turn off audible bell
+xterm*visualBell: true
