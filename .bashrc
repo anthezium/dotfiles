@@ -135,7 +135,7 @@ fi
 
 # set PATH so it includes user's private bins if they exist
 
-for binpath in "$HOME/bin" "$HOME/.cabal/bin" "$HOME/.local/bin" "$HOME/.cask/bin" "$HOME/.xmonad"
+for binpath in "$HOME/bin" "$HOME/.cabal/bin" "$HOME/.local/bin" "$HOME/.cask/bin" "$HOME/.xmonad" "$HOME/.local/bin"
 do
   if [ -d "${binpath}" ] ; then
       PATH="${binpath}:$PATH"
