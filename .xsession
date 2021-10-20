@@ -54,7 +54,7 @@ xss-lock -- xscreensaver-command -lock &
 
 #echo "place 2a" 2>&1
 # Caffeine to toggle off (or timer off) screen saver
-#caffeine &
+caffeine &
 
 # Set up power management tray icon
 #sleep 3
