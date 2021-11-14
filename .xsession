@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #MGR="kde"
-#MGR="xfce"
-MGR="xmonad"
+MGR="xfce"
+#MGR="xmonad"
 
 if [ "$MGR" = "xmonad" ]; then
   ## Set up icon tray first so applets have somewhere to go
@@ -60,13 +60,15 @@ caffeine &
 #sleep 3
 #gnome-power-manger &
 #xfce4-power-manager &
-cbatticon &
+if [ "${MGR}" = "xmonad" ]; then
+  cbatticon &
+fi
 
 #echo "place 3" 2>&1
 
 #volume slider
 # gnome-sound-applet &
-if [ "$MGR" != "kde" ]; then
+if [ "$MGR" = "xmonad" ]; then
   #volumeicon &
   pasystray &
 fi
