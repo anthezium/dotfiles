@@ -13,3 +13,5 @@
 	ui = auto
 [pull]
 	rebase = false
+[init]
+	defaultBranch = trunk

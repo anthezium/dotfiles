@@ -1,8 +1,12 @@
 #!/bin/bash
 
 #MGR="kde"
-MGR="xfce"
-#MGR="xmonad"
+#MGR="xfce"
+MGR="xmonad"
+
+# Set background image with feh
+feh --bg-fill /home/theod/images/The_Sun_in_high_resolution.jpg &
+
 
 if [ "$MGR" = "xmonad" ]; then
   ## Set up icon tray first so applets have somewhere to go

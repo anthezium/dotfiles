@@ -6,9 +6,10 @@ sudo pacman -S gnupg       # This will (re-)install your gpg-keys
 #sudo pacman-key --refresh-keys                 # This will refresh your pacman-keys
 sudo pacman -S archlinux-keyring               # This will install the archlinux-keyring
 sudo -s -- <<EOF
-rm -R /etc/pacman.d/gnupg/
-rm -R /root/.gnupg/ 
-gpg --refresh-keys
+#rm -R /etc/pacman.d/gnupg/
+mv /etc/pacman.d/gnupg{,.bak}
+mv /root/.gnupg{,.bak} 
+#gpg --refresh-keys
 pacman-key --init && pacman-key --populate archlinux
-pacman-key --refresh-keys
+#pacman-key --refresh-keys
 EOF
