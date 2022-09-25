@@ -18,10 +18,10 @@ myModMask = mod4Mask
 
 main = do
   xmobarProc <- spawnPipe "~/bin/start_xmobar.sh ~/.xmobarrc"
-  xmonad $ docks defaultConfig --gnomeConfig to manage windows for Gnome
-    { manageHook = manageDocks <+> manageHook defaultConfig
-    , handleEventHook = fullscreenEventHook
-    , layoutHook = avoidStruts $ layoutHook defaultConfig
+  xmonad $ (docks . ewmhFullscreen . ewmh) def --gnomeConfig to manage windows for Gnome
+    { manageHook = manageDocks <+> manageHook def
+    --, handleEventHook = fullscreenEventHook
+    , layoutHook = avoidStruts $ layoutHook def
     -- for BSP
     --, layoutHook = desktopLayoutModifiers $ emptyBSP
     , logHook = dynamicLogWithPP xmobarPP

@@ -155,3 +155,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # nix
 source ~/.nix-profile/etc/profile.d/nix.sh
+
+[ -f "/home/theod/.ghcup/env" ] && source "/home/theod/.ghcup/env" # ghcup-env
